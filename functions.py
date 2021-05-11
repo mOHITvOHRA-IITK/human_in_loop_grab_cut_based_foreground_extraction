@@ -162,13 +162,13 @@ def generate_mask(img, visualize = False):
 		user_input_mask = 127*np.ones(img.shape[:2],np.uint8)
 
 		for i in range(len(all_foreground_pixels)):
-			user_input_mask[all_foreground_pixels[i][1], all_foreground_pixels[i][0]] = 255 # sure foreground
 			cv2.circle(img, all_foreground_pixels[i], 10, (0,255,0), -1)
+			cv2.circle(user_input_mask, all_foreground_pixels[i], 10, 255, -1) # sure foreground
 
 
 		for i in range(len(all_background_pixels)):
-			user_input_mask[all_background_pixels[i][1], all_background_pixels[i][0]] = 0 # sure background
 			cv2.circle(img, all_background_pixels[i], 10, (255,0,0), -1)
+			cv2.circle(user_input_mask, all_background_pixels[i], 10, 0, -1) # sure background
 
 		
 		big_frame = np.zeros([h,np.int(1.4*w),3], np.uint8)
@@ -185,8 +185,8 @@ def generate_mask(img, visualize = False):
 			
 			mask[user_input_mask == 0] = 0
 			mask[user_input_mask == 255] = 1
-			mask, bgdModel, fgdModel = cv2.grabCut(org_img, mask, None, bgdModel, fgdModel, 5, cv2.GC_INIT_WITH_MASK)
-			mask2 = 255*np.where((mask==2)|(mask==0),0,1).astype('uint8')
+			local_mask, bgdModel, fgdModel = cv2.grabCut(org_img, mask, None, bgdModel, fgdModel, 5, cv2.GC_INIT_WITH_MASK)
+			mask2 = 255*np.where((local_mask==2)|(local_mask==0),0,1).astype('uint8')
 
 
 		cv2.imshow('foreground_mask', mask2)

@@ -19,6 +19,7 @@ save_folder_path = './foreground_mask/'
 
 for file in all_images_list:
 	cmp_img_path = data_folder_path + file
+	print ('reading file', cmp_img_path)
 	img = cv2.imread(cmp_img_path)
 	# img2 = cv2.resize(img, (192,256))
 	# cv2.imwrite(cmp_img_path, img2)
