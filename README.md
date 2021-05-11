@@ -22,5 +22,4 @@ Extracting foreground regions in image plane is very basic and primary task for 
 
 
 **Observations**
-* Has been tested for simple cases, where the background is uniform and has a contract difference with target object.
 * Good for offline processing as grab cut takes sufficient computation time.

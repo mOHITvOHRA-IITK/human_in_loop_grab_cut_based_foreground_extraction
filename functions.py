@@ -200,6 +200,18 @@ def generate_mask(img, visualize = False):
 
 
 
+def generate_final_image(img, mask):
+	background_pixel_loc = mask[:,:] == 0
+	only_foreground_img = img.copy()
+	only_foreground_img[background_pixel_loc,:] = [255,255,255]
+	cv2.imshow('img', img)
+	cv2.imshow('mask', mask)
+	cv2.imshow('only_foreground_img', only_foreground_img)
+	cv2.waitKey(0)
+
+	return only_foreground_img
+
+
 
 
 
