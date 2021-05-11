@@ -13,6 +13,7 @@ Extracting foreground regions in image plane is very basic and primary task for 
 * Put your test images in the folder `/images`
 * Type in the terminal `python3 main.py`
 * Segmented part will be saved in the folder `/foreground_mask`
+* A (video link)(https://youtu.be/UtwnMofyMqs) is attached which demostrated how to feed the seed points (foreground and background pixels).
 
 
 <p align="center">
