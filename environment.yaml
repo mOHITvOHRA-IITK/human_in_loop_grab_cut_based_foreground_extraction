@@ -1,0 +1,16 @@
+name: v360
+channels:
+  - conda-forge 
+  - pytorch
+  - defaults
+dependencies:
+  - opencv=4.5
+  - pytorch=1.5.0=py3.8_cuda10.2.89_cudnn7.6.5_0
+  - torchvision=0.6.0=py38_cu102
+  - cudatoolkit=10.2 
+  - tqdm
+  - ninja
+  - scikit-image
+  - scikit-learn
+
+
