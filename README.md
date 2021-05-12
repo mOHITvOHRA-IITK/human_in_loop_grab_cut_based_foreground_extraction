@@ -28,7 +28,7 @@ conda activate v360
 
 
 <p align="center">
-  <img src="results/final_image.jpg" />
+  <img src="final_image/resut_img.jpg" />
 </p>
 
 
